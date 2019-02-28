@@ -1,0 +1,12 @@
+===========Backpropagation=========
+Train Error: 0.000% 
+Test Error: 2.244% 
+Time Elapsed: 124.882 s 
+===========Randomized Hill Climbing=========
+Train Error: 4.055% 
+Test Error: 5.155% 
+Time Elapsed: 2248.526 s 
+===========Simulated Annealing=========
+Train Error: 7.590% 
+Test Error: 9.278% 
+Time Elapsed: 2212.670 s 

@@ -1,0 +1,88 @@
+Iteration: 0===========Simulated Annealing=========
+Train Error: �% 
+Test Error: �% 
+Time Elapsed: 0.051 s 
+Iteration: 500===========Simulated Annealing=========
+Train Error: 29.714% 
+Test Error: 42.000% 
+Time Elapsed: 3.296 s 
+Iteration: 1000===========Simulated Annealing=========
+Train Error: 33.857% 
+Test Error: 38.667% 
+Time Elapsed: 6.324 s 
+Iteration: 1500===========Simulated Annealing=========
+Train Error: 37.429% 
+Test Error: 46.667% 
+Time Elapsed: 9.528 s 
+Iteration: 2000===========Simulated Annealing=========
+Train Error: 41.000% 
+Test Error: 45.500% 
+Time Elapsed: 12.279 s 
+Iteration: 2500===========Simulated Annealing=========
+Train Error: 44.286% 
+Test Error: 45.600% 
+Time Elapsed: 14.944 s 
+Iteration: 3000===========Simulated Annealing=========
+Train Error: 40.524% 
+Test Error: 41.778% 
+Time Elapsed: 19.429 s 
+Iteration: 3500===========Simulated Annealing=========
+Train Error: 36.122% 
+Test Error: 37.143% 
+Time Elapsed: 22.897 s 
+Iteration: 4000===========Simulated Annealing=========
+Train Error: 35.071% 
+Test Error: 36.083% 
+Time Elapsed: 25.615 s 
+Iteration: 4500===========Simulated Annealing=========
+Train Error: 47.873% 
+Test Error: 50.074% 
+Time Elapsed: 27.964 s 
+Iteration: 5000===========Simulated Annealing=========
+Train Error: 36.629% 
+Test Error: 35.200% 
+Time Elapsed: 31.856 s 
+Iteration: 5500===========Simulated Annealing=========
+Train Error: 33.853% 
+Test Error: 34.282% 
+Time Elapsed: 34.942 s 
+Iteration: 6000===========Simulated Annealing=========
+Train Error: 32.405% 
+Test Error: 33.333% 
+Time Elapsed: 37.428 s 
+Iteration: 6500===========Simulated Annealing=========
+Train Error: 43.846% 
+Test Error: 44.462% 
+Time Elapsed: 38.939 s 
+Iteration: 7000===========Simulated Annealing=========
+Train Error: 37.184% 
+Test Error: 38.619% 
+Time Elapsed: 41.274 s 
+Iteration: 7500===========Simulated Annealing=========
+Train Error: 52.876% 
+Test Error: 54.756% 
+Time Elapsed: 43.812 s 
+Iteration: 8000===========Simulated Annealing=========
+Train Error: 44.500% 
+Test Error: 44.917% 
+Time Elapsed: 45.290 s 
+Iteration: 8500===========Simulated Annealing=========
+Train Error: 50.521% 
+Test Error: 52.157% 
+Time Elapsed: 48.534 s 
+Iteration: 9000===========Simulated Annealing=========
+Train Error: 41.841% 
+Test Error: 41.704% 
+Time Elapsed: 51.659 s 
+Iteration: 9500===========Simulated Annealing=========
+Train Error: 40.015% 
+Test Error: 41.860% 
+Time Elapsed: 54.678 s 
+Iteration: 10000===========Simulated Annealing=========
+Train Error: 47.900% 
+Test Error: 47.867% 
+Time Elapsed: 56.801 s 
+Iteration: 10500===========Simulated Annealing=========
+Train Error: 35.229% 
+Test Error: 37.099% 
+Time Elapsed: 59.492 s 

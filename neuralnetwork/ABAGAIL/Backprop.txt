@@ -1,0 +1,88 @@
+Iteration: 0===========Backpropagation=========
+Train Error: �% 
+Test Error: �% 
+Time Elapsed: 0.008 s 
+Iteration: 500===========Backpropagation=========
+Train Error: 2.286% 
+Test Error: 14.667% 
+Time Elapsed: 0.798 s 
+Iteration: 1000===========Backpropagation=========
+Train Error: 4.000% 
+Test Error: 19.000% 
+Time Elapsed: 1.384 s 
+Iteration: 1500===========Backpropagation=========
+Train Error: 4.000% 
+Test Error: 14.444% 
+Time Elapsed: 2.042 s 
+Iteration: 2000===========Backpropagation=========
+Train Error: 3.143% 
+Test Error: 9.500% 
+Time Elapsed: 2.675 s 
+Iteration: 2500===========Backpropagation=========
+Train Error: 5.943% 
+Test Error: 12.933% 
+Time Elapsed: 3.518 s 
+Iteration: 3000===========Backpropagation=========
+Train Error: 6.476% 
+Test Error: 11.444% 
+Time Elapsed: 4.333 s 
+Iteration: 3500===========Backpropagation=========
+Train Error: 10.735% 
+Test Error: 15.048% 
+Time Elapsed: 4.795 s 
+Iteration: 4000===========Backpropagation=========
+Train Error: 6.786% 
+Test Error: 9.500% 
+Time Elapsed: 5.477 s 
+Iteration: 4500===========Backpropagation=========
+Train Error: 5.429% 
+Test Error: 9.037% 
+Time Elapsed: 6.348 s 
+Iteration: 5000===========Backpropagation=========
+Train Error: 5.171% 
+Test Error: 8.600% 
+Time Elapsed: 6.971 s 
+Iteration: 5500===========Backpropagation=========
+Train Error: 5.300% 
+Test Error: 9.509% 
+Time Elapsed: 7.468 s 
+Iteration: 6000===========Backpropagation=========
+Train Error: 6.452% 
+Test Error: 8.944% 
+Time Elapsed: 8.839 s 
+Iteration: 6500===========Backpropagation=========
+Train Error: 4.813% 
+Test Error: 7.077% 
+Time Elapsed: 9.084 s 
+Iteration: 7000===========Backpropagation=========
+Train Error: 4.735% 
+Test Error: 6.762% 
+Time Elapsed: 9.788 s 
+Iteration: 7500===========Backpropagation=========
+Train Error: 4.248% 
+Test Error: 7.289% 
+Time Elapsed: 10.758 s 
+Iteration: 8000===========Backpropagation=========
+Train Error: 6.661% 
+Test Error: 9.042% 
+Time Elapsed: 11.140 s 
+Iteration: 8500===========Backpropagation=========
+Train Error: 5.193% 
+Test Error: 7.725% 
+Time Elapsed: 11.979 s 
+Iteration: 9000===========Backpropagation=========
+Train Error: 6.429% 
+Test Error: 8.259% 
+Time Elapsed: 13.323 s 
+Iteration: 9500===========Backpropagation=========
+Train Error: 4.241% 
+Test Error: 5.579% 
+Time Elapsed: 13.955 s 
+Iteration: 10000===========Backpropagation=========
+Train Error: 7.429% 
+Test Error: 9.233% 
+Time Elapsed: 15.669 s 
+Iteration: 10500===========Backpropagation=========
+Train Error: 6.885% 
+Test Error: 8.378% 
+Time Elapsed: 16.598 s 

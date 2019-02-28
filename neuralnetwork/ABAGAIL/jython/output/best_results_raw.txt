@@ -1,0 +1,29 @@
+---------- CONTPEAKS ----------
+{'GA': {'best': 93.0,
+        'files': ['output//CONTPEAKS/CONTPEAKS_GA100_50_30_5_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_GA100_50_30_4_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_GA100_50_30_2_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_GA100_50_30_3_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_GA100_50_30_1_LOG.csv']},
+ 'MIMIC': {'best': 79.0,
+           'files': ['output//CONTPEAKS/CONTPEAKS_MIMIC100_50_0.5_5_LOG.csv',
+                     'output//CONTPEAKS/CONTPEAKS_MIMIC100_50_0.5_4_LOG.csv',
+                     'output//CONTPEAKS/CONTPEAKS_MIMIC100_50_0.5_2_LOG.csv',
+                     'output//CONTPEAKS/CONTPEAKS_MIMIC100_50_0.5_3_LOG.csv',
+                     'output//CONTPEAKS/CONTPEAKS_MIMIC100_50_0.5_1_LOG.csv']},
+ 'RHC': {'best': 96.5,
+         'files': ['output//CONTPEAKS/CONTPEAKS_RHC_3_LOG.csv',
+                   'output//CONTPEAKS/CONTPEAKS_RHC_2_LOG.csv',
+                   'output//CONTPEAKS/CONTPEAKS_RHC_1_LOG.csv',
+                   'output//CONTPEAKS/CONTPEAKS_RHC_4_LOG.csv',
+                   'output//CONTPEAKS/CONTPEAKS_RHC_5_LOG.csv']},
+ 'SA': {'best': 99.0,
+        'files': ['output//CONTPEAKS/CONTPEAKS_SA0.75_5_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_SA0.75_4_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_SA0.75_1_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_SA0.75_2_LOG.csv',
+                  'output//CONTPEAKS/CONTPEAKS_SA0.75_3_LOG.csv']}}
+---------- FLIPFLOP ----------
+{}
+---------- NN ----------
+{}
