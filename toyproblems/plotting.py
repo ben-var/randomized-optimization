@@ -21,16 +21,16 @@ logger = logging.getLogger(__name__)
 input_path = 'output/'
 output_path = 'output/images/'
 to_process = {
-    'FLIPFLOP': {
-        'path': 'FLIPFLOP',
-        'nn_curve': False,
-        'multiple_trials': True
-    },
-    'TSP': {
-        'path': 'TSP',
-        'nn_curve': False,
-        'multiple_trials': True
-    },
+    # 'FLIPFLOP': {
+    #     'path': 'FLIPFLOP',
+    #     'nn_curve': False,
+    #     'multiple_trials': True
+    # },
+    # 'TSP': {
+    #     'path': 'TSP',
+    #     'nn_curve': False,
+    #     'multiple_trials': True
+    # },
     'CONTPEAKS': {
         'path': 'CONTPEAKS',
         'nn_curve': False,
@@ -38,7 +38,7 @@ to_process = {
     },
     # 'NN': {
     #     'path': 'NN_OUTPUT',
-    #     'nn_curve': False,
+    #     'nn_curve': True,
     #     'multiple_trials': False
     # }
 }
@@ -83,9 +83,9 @@ def plot_data(title, data, column_prefixes=None, validate_only=False, nn_curve=F
                 plt.plot(data.index, mean, '-', linewidth=1, markersize=1,
                          label=column_prefix)
             else:
-                train = data['{}_f1_trg'.format(column_prefix)]
-                test = data['{}_f1_tst'.format(column_prefix)]
-                val = data['{}_f1_val'.format(column_prefix)]
+                train = data['{}_acc_trg'.format(column_prefix)]
+                test = data['{}_acc_tst'.format(column_prefix)]
+                val = data['{}_acc_val'.format(column_prefix)]
                 if not validate_only:
                     plt.plot(data.index, train, '-', linewidth=1, markersize=1,
                              label='Train {} {}'.format(column_prefix, y_label))
@@ -103,8 +103,8 @@ def plot_data(title, data, column_prefixes=None, validate_only=False, nn_curve=F
                              mean + std, alpha=0.2)
             plt.plot(data.index, mean, '-', linewidth=1, markersize=1, label=None)
         else:
-            train = data['f1_trg']
-            val = data['f1_val']
+            train = data['acc_trg']
+            val = data['acc_val']
             plt.plot(data.index, train, '-', linewidth=1, markersize=1,
                      label='Train {}'.format(y_label))
             plt.plot(data.index, val, '-', linewidth=1, markersize=1,
@@ -123,9 +123,7 @@ def read_data_file(file, nn_curve=False):
     df = df.set_index('iterations')
     # Trim the nn graphs to the first 1k iterations, as after that the graphs flatten out
     if nn_curve:
-        print (df.index)
-        # df = df[df.index <= 2000]
-        df = df[np.array(df.index, dtype='int64') <= 2000]
+        df = df[df.index <= 2000]
 
     return df
 
@@ -160,7 +158,7 @@ def plot_mimic_data(problem_name, mimic_files, output_dir, nn_curve=False):
     graph_ys = ['fitness', 'time', 'fevals'] if not nn_curve else []
     logger.info("Plotting MIMIC data")
 
-    y_label = 'F1 Score' if nn_curve else 'Fitness'
+    y_label = 'Accuracy' if nn_curve else 'Fitness'
 
     if not os.path.exists('{}/{}'.format(output_dir, problem_name)):
         os.makedirs('{}/{}'.format(output_dir, problem_name))
@@ -214,7 +212,7 @@ def plot_ga_data(problem_name, ga_files, output_dir, nn_curve=False):
     graph_ys = ['fitness', 'time', 'fevals'] if not nn_curve else []
     logger.info("Plotting GA data")
 
-    y_label = 'F1 Score' if nn_curve else 'Fitness'
+    y_label = 'Accuracy' if nn_curve else 'Fitness'
 
     if not os.path.exists('{}/{}'.format(output_dir, problem_name)):
         os.makedirs('{}/{}'.format(output_dir, problem_name))
@@ -248,10 +246,8 @@ def plot_ga_data(problem_name, ga_files, output_dir, nn_curve=False):
 
             if nn_curve:
                 # For the NN problem convergence happens relatively early (except for SA)
-                # TODO check this code line
-                # main_df[mate] = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df[mate])
-                main_df[mate] = reduce(lambda x, y: pd.merge(x, y, left_index=True, right_index=True), main_df[mate])
-                main_df[mate] = main_df[mate][main_df[mate].index <= 500]
+                main_df[mate] = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df[mate])
+                main_df[mate] = main_df[mate][main_df[mate].index <= 1000]
                 p = plot_data('{} - GA {} {}: {} vs Iterations'.format(problem_name, pop, mate,
                                                                        y_label), main_df[mate],
                               sorted(ga_files[pop][mate].keys()),
@@ -278,7 +274,7 @@ def plot_sa_data(problem_name, sa_files, output_dir, nn_curve=False):
     graph_ys = ['fitness', 'time', 'fevals'] if not nn_curve else []
     logger.info("Plotting SA data")
 
-    y_label = 'F1 Score' if nn_curve else 'Fitness'
+    y_label = 'Accuracy' if nn_curve else 'Fitness'
 
     if not os.path.exists('{}/{}'.format(output_dir, problem_name)):
         os.makedirs('{}/{}'.format(output_dir, problem_name))
@@ -329,7 +325,7 @@ def plot_rhc_data(problem_name, rhc_files, output_dir, nn_curve=False):
     graph_ys = ['fitness', 'time', 'fevals'] if not nn_curve else []
     logger.info("Plotting RHC data")
 
-    y_label = 'F1 Score' if nn_curve else 'Fitness'
+    y_label = 'Accuracy' if nn_curve else 'Fitness'
 
     if not os.path.exists('{}/{}'.format(output_dir, problem_name)):
         os.makedirs('{}/{}'.format(output_dir, problem_name))
@@ -352,7 +348,7 @@ def plot_rhc_data(problem_name, rhc_files, output_dir, nn_curve=False):
 
     if nn_curve:
         # For the NN problem convergence happens relatively early (except for SA)
-        main_df = main_df[main_df.index <= 500]
+        main_df = main_df[main_df.index <= 1000]
         p = plot_data('{} - RHC: {} vs Iterations'.format(problem_name, y_label), main_df,
                       None, nn_curve=nn_curve,
                       y_label=y_label)
@@ -375,7 +371,7 @@ def plot_backprop_data(problem_name, backprop_files, output_dir, nn_curve=False)
     graph_ys = ['fitness', 'time', 'fevals'] if not nn_curve else []
     logger.info("Plotting Backprop data")
 
-    y_label = 'F1 Score' if nn_curve else 'Fitness'
+    y_label = 'Accuracy' if nn_curve else 'Fitness'
 
     if not os.path.exists('{}/{}'.format(output_dir, problem_name)):
         os.makedirs('{}/{}'.format(output_dir, problem_name))
@@ -398,7 +394,7 @@ def plot_backprop_data(problem_name, backprop_files, output_dir, nn_curve=False)
 
     if nn_curve:
         # For the NN problem convergence happens relatively early (except for SA)
-        main_df = main_df[main_df.index <= 500]
+        main_df = main_df[main_df.index <= 1000]
         p = plot_data('{} - Backprop: {} vs Iterations'.format(problem_name, y_label), main_df,
                       None, nn_curve=nn_curve,
                       y_label=y_label)
@@ -419,7 +415,7 @@ def plot_best_curves(problem_name, files, output_dir, nn_curve=False):
     graph_ys = ['fitness', 'time', 'fevals'] if not nn_curve else []
     logger.info("Plotting best results for {}".format(problem_name))
 
-    y_label = 'F1 Score' if nn_curve else 'Fitness'
+    y_label = 'Accuracy' if nn_curve else 'Fitness'
 
     if not os.path.exists('{}/{}'.format(output_dir, problem_name)):
         os.makedirs('{}/{}'.format(output_dir, problem_name))
@@ -456,7 +452,7 @@ def plot_best_curves(problem_name, files, output_dir, nn_curve=False):
         main_df = [list(k.values())[0] for k in main_df]
         main_df = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df)
         # For the NN problem convergence happens relatively early (except for SA)
-        main_df = main_df[main_df.index <= 500]
+        main_df = main_df[main_df.index <= 1000]
     else:
         p = plot_data('{} - Best: {} vs Iterations'.format(problem_name, 'Function Evals'), main_df['fevals'],
                       prefixes, nn_curve=nn_curve, validate_only=nn_curve,
@@ -580,7 +576,7 @@ def find_best_results(base_dir, problem_name, nn_curve=False, multiple_trials=Fa
 
         df = read_data_file(output_file, nn_curve=nn_curve)
         if nn_curve:
-            best_value = np.max(np.max(df[['f1_tst']]))
+            best_value = np.max(np.max(df[['acc_tst']]))
         else:
             best_value = np.max(df['fitness'])
 
@@ -606,7 +602,7 @@ def find_best_results(base_dir, problem_name, nn_curve=False, multiple_trials=Fa
                     files[algo]['files'] = list(similar_files)
 
     logger.info(pformat(files))
-    with open(input_path + '/best_results_raw.txt', 'w+') as f:
+    with open(input_path + '/best_results_raw.txt', 'a+') as f:
         f.write("---------- {} ----------\n".format(problem_name))
         f.write(pformat(files) + '\n')
 
@@ -643,13 +639,13 @@ if __name__ == '__main__':
 
                 df = read_data_file(file, nn_curve=nn_curve)
                 if nn_curve:
-                    df = df[df.index <= 500]
+                    df = df[df.index <= 1000]
 
                 if nn_curve:
-                    max_index = df['f1_tst'].idxmax()
+                    max_index = df['acc_tst'].idxmax()
                     best = df.ix[max_index]
                     best_iterations = max_index
-                    best_value = best['f1_tst']
+                    best_value = best['acc_tst']
                     best_time = best['elapsed']
                 else:
                     max_index = df['fitness'].idxmax()

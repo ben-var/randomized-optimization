@@ -9,7 +9,7 @@ from java.lang import Math
 __all__ = ['DS_NAME', 'TEST_DATA_FILE', 'TRAIN_DATA_FILE', 'VALIDATE_DATA_FILE', 'OUTPUT_DIRECTORY',
            'initialize_instances', 'error_on_data_set', 'train']
 
-DS_NAME = 'letter_data'
+DS_NAME = 'bank_data'
 
 TEST_DATA_FILE = 'data/{}_test.csv'.format(DS_NAME)
 TRAIN_DATA_FILE = 'data/{}_train.csv'.format(DS_NAME)
@@ -30,12 +30,12 @@ for subdir in subdirs:
         os.makedirs('{}/images/{}'.format(OUTPUT_DIRECTORY, subdir))
 
 seed = 653091685
-# seed = rand.randint(0, (2 ** 32) - 1, dtype='int64')
+# seed = rand.randint(0, (2 ** 32) - 1)
 print("Using seed {}".format(seed))
 rand.seed(seed)
 
 
-def initialize_instances(infile, NUM_CLASSES = None):
+def initialize_instances(infile):
     """Read the given CSV data into a list of instances."""
     instances = []
 
@@ -44,19 +44,9 @@ def initialize_instances(infile, NUM_CLASSES = None):
         reader = csv.reader(dat)
 
         for row in reader:
-            if NUM_CLASSES is not None:
-                instance = Instance([float(value) for value in row[:-1]])
-
-                label = int(float(row[-1]))
-                classes = [0] * NUM_CLASSES
-                classes[label] = 1
-
-                instance.setLabel(Instance(classes))
-            else:
-                instance = Instance([float(value) for value in row[:-1]])
-                # TODO: Set to <= 0 to handle 0/1 labels and not just -1/1?
-                label = int(row[-1])
-                instance.setLabel(Instance(label))
+            instance = Instance([float(value) for value in row[:-1]])
+            # TODO: Set to <= 0 to handle 0/1 labels and not just -1/1?
+            instance.setLabel(Instance(0 if float(row[-1]) < 0 else 1))
             instances.append(instance)
 
     return instances

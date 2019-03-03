@@ -65,10 +65,15 @@ if __name__ == '__main__':
         #     'name': 'pen_digits',
         #     'readable_name': 'Handwritten Digits',
         # },
+        # {
+        #     'data': loader.LetterData(verbose=verbose, seed=seed),
+        #     'name': 'letter',
+        #     'readable_name': 'Letter Recognition',
+        # },
         {
-            'data': loader.LetterData(verbose=verbose, seed=seed),
-            'name': 'letter',
-            'readable_name': 'Letter Recognition',
+            'data': loader.BankData(verbose=verbose, seed=seed),
+            'name': 'bank',
+            'readable_name': 'Bank Marketing'
         }
         # {
         #     'data': loader.SpamData(verbose=verbose, seed=seed),

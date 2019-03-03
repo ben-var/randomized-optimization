@@ -1,5 +1,5 @@
 """
-RHC NN training on HTRU2 data
+RHC NN training
 """
 # Adapted from https://github.com/JonathanTay/CS-7641-assignment-2/blob/master/NN1.py
 import sys
@@ -14,11 +14,11 @@ from func.nn.activation import RELU
 from base import *
 
 # Network parameters found "optimal" in Assignment 1
-INPUT_LAYER = 16
-HIDDEN_LAYER1 = 80
-HIDDEN_LAYER2 = 50
-OUTPUT_LAYER = 26
-TRAINING_ITERATIONS = 5001
+INPUT_LAYER = 19
+HIDDEN_LAYER1 = 15
+HIDDEN_LAYER2 = 5
+OUTPUT_LAYER = 1
+TRAINING_ITERATIONS = 3001
 OUTFILE = OUTPUT_DIRECTORY + '/NN_OUTPUT/NN_{}_LOG.csv'
 
 
@@ -43,7 +43,7 @@ def main():
 
 
 if __name__ == "__main__":
-    with open(OUTFILE.format('RHC'), 'w+') as f:
+    with open(OUTFILE.format('RHC'), 'a+') as f:
         f.write('{},{},{},{},{},{},{},{},{},{},{}\n'.format('iteration', 'MSE_trg', 'MSE_val', 'MSE_tst', 'acc_trg',
                                                             'acc_val', 'acc_tst', 'f1_trg', 'f1_val', 'f1_tst',
                                                             'elapsed'))

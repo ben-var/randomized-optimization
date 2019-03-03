@@ -6,12 +6,12 @@ package util.linalg;
  * @version 1.0
  */
 public class DenseVector extends Vector {
-    
+
     /**
      * The data
      */
     private double[] data;
-    
+
     /**
      * Make a new dense vector
      * @param data the data
@@ -19,7 +19,7 @@ public class DenseVector extends Vector {
     public DenseVector(double[] data) {
         this.data = data;
     }
-    
+
     /**
      * Make a new dense vector of the given size
      * @param size the size to make it
@@ -41,16 +41,29 @@ public class DenseVector extends Vector {
     public double get(int i) {
         return data[i];
     }
-    
+
     /**
      * @see linalg.Vector#set(int, double)
      */
     public void set(int i, double value) {
         data[i] = value;
     }
-    
+
+    public int argmax() {
+      int bestIdx = -1;
+      double max = Double.NEGATIVE_INFINITY;
+      for (int i = 0; i < data.length; i++) {
+        double elem = data[i];
+        if (elem > max) {
+          max = elem;
+          bestIdx = i;
+        }
+      }
+      return bestIdx;
+    }
+
     /**
-     * Make an identity vector 
+     * Make an identity vector
      * @param i the dimension of identity
      * @param size the size of the vector
      * @return the identity vector
@@ -60,7 +73,7 @@ public class DenseVector extends Vector {
         result[i] = 1;
         return new DenseVector(result);
     }
-    
+
     /**
      * Get the identity 1 vector of the given size
      * @param size the size

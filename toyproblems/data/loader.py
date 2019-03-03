@@ -149,13 +149,9 @@ class DataLoader(ABC):
                                                                        test_size=test_size, random_state=random_state,
                                                                        stratify=train_y)
 
-        # test_y = pd.DataFrame(np.where(test_y == 0, -1, 1))
-        # train_y = pd.DataFrame(np.where(train_y == 0, -1, 1))
-        # validate_y = pd.DataFrame(np.where(validate_y == 0, -1, 1))
-
-        test_y = pd.DataFrame(test_y)
-        train_y = pd.DataFrame(train_y)
-        validate_y = pd.DataFrame(validate_y)
+        test_y = pd.DataFrame(np.where(test_y == 0, -1, 1))
+        train_y = pd.DataFrame(np.where(train_y == 0, -1, 1))
+        validate_y = pd.DataFrame(np.where(validate_y == 0, -1, 1))
 
         tst = pd.concat([pd.DataFrame(test_x), test_y], axis=1)
         trg = pd.concat([pd.DataFrame(train_x), train_y], axis=1)
@@ -210,6 +206,31 @@ class DataLoader(ABC):
         """
         if self._verbose:
             logger.info(msg.format(*args))
+
+class BankData(DataLoader):
+    def __init__(self, path='data/bank.csv', verbose=False, seed=1):
+        super().__init__(path, verbose, seed)
+
+    def _load_data(self):
+        self._data = pd.read_csv(self._path, header=0, index_col=0)
+
+    def data_name(self):
+        return 'bank_data'
+
+    def class_column_name(self):
+        return 'y'
+
+    def _preprocess_data(self):
+        pass
+
+    def pre_training_adjustment(self, train_features, train_classes):
+        """
+        Perform any adjustments to training data before training begins.
+        :param train_features: The training features to adjust
+        :param train_classes: The training classes to adjust
+        :return: The processed data
+        """
+        return train_features, train_classes
 
 class LetterData(DataLoader):
     def __init__(self, path='data/letter.csv', verbose=False, seed=1):
