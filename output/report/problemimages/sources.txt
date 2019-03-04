@@ -1,0 +1,3 @@
+tsp: https://www.tutorialspoint.com/design_and_analysis_of_algorithms/design_and_analysis_of_algorithms_travelling_salesman_problem.htm
+contpeaks: https://www.researchgate.net/figure/Color-online-XRD-pattern-of-SCSA-showing-quartz-peaks-The-continuous-baseline-line_fig1_258003911
+
