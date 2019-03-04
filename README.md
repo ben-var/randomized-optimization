@@ -1,7 +1,7 @@
 
 # Assignment 2 - Randomized Optimization
 
-The code for this assignment chooses three toy problems, but there are other options available in _ABAGAIL_. Most of this code was adapted from https://github.com/cmaron/CS-7641-assignments/tree/master/assignment2, which is allowed for this assigment. Thank you kindly Chad for sharing your implementation.
+The code for this assignment chooses three toy problems, but there are other options available in _ABAGAIL_. Most of this code was adapted from https://github.com/cmaron/CS-7641-assignments/tree/master/assignment2, which is allowed for this assignment. Thank you kindly Chad for sharing your implementation.
 
 ## General
 
